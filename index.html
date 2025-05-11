@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Respira Lima - Educación para un Aire Limpio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Font Awesome para iconos de redes sociales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="logo-container">
+          <h1>Respira Lima</h1>
+          <p>Educación para un aire limpio</p>
+        </div>
+        <div class="social-media">
+          <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </header>
+
+    <nav id="main-nav">
+      <div class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="modulos.html">Módulos</a>
+        <a href="simulador.html">Simulador</a>
+        <a href="historias.html">Historias</a>
+        <a href="retos.html">Retos</a>
+        <a href="testimonios.html">Testimonios</a>
+        <a href="docentes.html">Docentes</a>
+      </div>
+    </nav>
+
+    <!-- Slider Principal -->
+    <div id="slider">
+      <div class="slide" style="display: block">
+        <img src="img/slide1.jpg" alt="Slide 1" />
+        <div class="slide-content">
+          <h2>Respira Mejor</h2>
+          <p>Juntos por un aire más limpio en nuestra ciudad</p>
+          <a href="#modulos" class="slide-btn">Conoce Más</a>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="img/slide2.jpg" alt="Slide 2" />
+        <div class="slide-content">
+          <h2>Educación Ambiental</h2>
+          <p>Formando ciudadanos conscientes</p>
+          <a href="#simulador" class="slide-btn">Probar Simulador</a>
+        </div>
+      </div>
+      <div class="slider-controls">
+        <span class="dot active" onclick="currentSlide(0)"></span>
+        <span class="dot" onclick="currentSlide(1)"></span>
+      </div>
+    </div>
+
+    <section id="modulos" class="animated-section">
+      <h2>Módulos Educativos</h2>
+      <div class="card-container">
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-atom"></i>
+          </div>
+          <h3>¿Qué es el monóxido de carbono?</h3>
+          <p>Aprende sobre este gas incoloro e inodoro y sus fuentes principales</p>
+          <a href="modulos.html" class="btn">Leer más</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-heartbeat"></i>
+          </div>
+          <h3>Impacto en la salud y el ambiente</h3>
+          <p>Descubre cómo la contaminación afecta nuestra salud y ecosistemas</p>
+          <a href="modulos.html" class="btn">Leer más</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-city"></i>
+          </div>
+          <h3>Situación actual de Lima Metropolitana</h3>
+          <p>Datos y cifras sobre la calidad del aire en nuestra ciudad</p>
+          <a href="modulos.html" class="btn">Leer más</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="simulador" class="animated-section">
+      <h2>Simulador de Impacto Ambiental</h2>
+      <p>
+        Descubre cómo tus acciones diarias afectan el medio ambiente. Usa
+        nuestro simulador para calcular tu huella de carbono y aprende cómo
+        reducirla.
+      </p>
+      <div class="simulator-preview">
+        <img src="https://via.placeholder.com/800x400?text=Vista+Previa+Simulador" alt="Simulador" class="responsive-img" />
+        <a href="simulador.html" class="btn btn-large">Iniciar Simulador</a>
+      </div>
+    </section>
+
+    <section id="historias">
+      <h2>Historias Inspiradoras</h2>
+      <p>
+        Conoce a personas y comunidades que están marcando la diferencia en la
+        lucha contra la contaminación. Inspírate con sus logros y aprendizajes.
+      </p>
+      <div class="stories-container">
+        <div class="story-card">
+          <img src="https://via.placeholder.com/150?text=María" alt="María" class="story-img" />
+          <h3>María</h3>
+          <p>Transformó su barrio con un programa de reciclaje.</p>
+          <a href="historias.html" class="btn">Leer historia</a>
+        </div>
+        <div class="story-card">
+          <img src="https://via.placeholder.com/150?text=Jorge" alt="Jorge" class="story-img" />
+          <h3>Jorge</h3>
+          <p>Implementó un sistema de compostaje en su escuela.</p>
+          <a href="historias.html" class="btn">Leer historia</a>
+        </div>
+        <div class="story-card">
+          <img src="https://via.placeholder.com/150?text=Comunidad" alt="Comunidad" class="story-img" />
+          <h3>Comunidad de San Juan</h3>
+          <p>Reforestaron un parque local.</p>
+          <a href="historias.html" class="btn">Leer historia</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="retos">
+      <h2>Retos Ambientales</h2>
+      <p>
+        Participa en nuestros retos semanales para mejorar el medio ambiente.
+        Comparte tus logros y motiva a otros a unirse.
+      </p>
+      <div class="challenges">
+        <div class="challenge-item">
+          <div class="challenge-number">1</div>
+          <div class="challenge-content">
+            <h3>Reduce el uso de plásticos desechables</h3>
+            <div class="progress-container">
+              <div class="progress-bar" style="width: 75%">75%</div>
+            </div>
+            <p>126 personas participando</p>
+          </div>
+        </div>
+        <div class="challenge-item">
+          <div class="challenge-number">2</div>
+          <div class="challenge-content">
+            <h3>Usa transporte sostenible al menos 3 días</h3>
+            <div class="progress-container">
+              <div class="progress-bar" style="width: 60%">60%</div>
+            </div>
+            <p>98 personas participando</p>
+          </div>
+        </div>
+        <div class="challenge-item">
+          <div class="challenge-number">3</div>
+          <div class="challenge-content">
+            <h3>Planta un árbol o cuida una planta</h3>
+            <div class="progress-container">
+              <div class="progress-bar" style="width: 45%">45%</div>
+            </div>
+            <p>73 personas participando</p>
+          </div>
+        </div>
+      </div>
+      <a href="retos.html" class="btn btn-center">Ver todos los retos</a>
+    </section>
+
+    <section id="multimedia">
+      <h2>Conoce más en imágenes</h2>
+      <div class="multimedia-row">
+        <div class="multimedia-col">
+          <div class="image-container">
+            <img
+              src="https://via.placeholder.com/300x200?text=Movilidad+Sostenible"
+              alt="Movilidad"
+              class="hover-effect"
+            />
+            <div class="overlay">
+              <div class="overlay-content">
+                <h3>Movilidad Sostenible</h3>
+                <a href="#" class="btn-small">Saber más</a>
+              </div>
+            </div>
+          </div>
+          <p>Usar bicicletas y transporte público reduce las emisiones.</p>
+        </div>
+        <div class="multimedia-col">
+          <div class="image-container">
+            <img
+              src="https://via.placeholder.com/300x200?text=Reforestación"
+              alt="Reforestación"
+              class="hover-effect"
+            />
+            <div class="overlay">
+              <div class="overlay-content">
+                <h3>Reforestación Urbana</h3>
+                <a href="#" class="btn-small">Saber más</a>
+              </div>
+            </div>
+          </div>
+          <p>Plantar árboles mejora la calidad del aire.</p>
+        </div>
+        <div class="multimedia-col">
+          <div class="image-container">
+            <img
+              src="https://via.placeholder.com/300x200?text=Reciclaje"
+              alt="Reciclaje"
+              class="hover-effect"
+            />
+            <div class="overlay">
+              <div class="overlay-content">
+                <h3>Gestión de Residuos</h3>
+                <a href="#" class="btn-small">Saber más</a>
+              </div>
+            </div>
+          </div>
+          <p>
+            La correcta gestión de residuos evita la quema y la contaminación.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonios">
+      <h2>Testimonios</h2>
+      <div class="testimonials-container">
+        <div class="testimonial-arrows">
+          <button class="arrow prev-testimonial"><i class="fas fa-chevron-left"></i></button>
+        </div>
+        <div class="testimonials-content">
+          <p class="testimonial" style="display: block">
+            "Mi hijo sufrió asma por el aire contaminado. Gracias a este proyecto
+            entendimos cómo ayudar desde casa." – <strong>Rosa, madre de familia</strong>
+          </p>
+          <p class="testimonial">
+            "Nuestra comunidad logró reducir la quema de basura. Hoy respiramos
+            mejor." – <strong>Pedro, vecino de Villa El Salvador</strong>
+          </p>
+          <p class="testimonial">
+            "Este programa me inspiró a usar mi bicicleta todos los días." – <strong>Carla,
+            estudiante de secundaria</strong>
+          </p>
+        </div>
+        <div class="testimonial-arrows">
+          <button class="arrow next-testimonial"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+      <div class="testimonial-dots">
+        <span class="dot-testimonial active"></span>
+        <span class="dot-testimonial"></span>
+        <span class="dot-testimonial"></span>
+      </div>
+    </section>
+
+    <section id="docentes">
+      <h2>Zona Docente</h2>
+      <p>
+        Material pedagógico, fichas y recursos alineados al currículo nacional.
+      </p>
+      <div class="resources-container">
+        <div class="resource-item">
+          <i class="fas fa-book"></i>
+          <h3>Sesiones por nivel</h3>
+          <p>Material adaptado para inicial, primaria y secundaria</p>
+          <a href="docentes.html" class="btn">Acceder</a>
+        </div>
+        <div class="resource-item">
+          <i class="fas fa-video"></i>
+          <h3>Videos educativos</h3>
+          <p>Contenido audiovisual para complementar tus clases</p>
+          <a href="docentes.html" class="btn">Ver videos</a>
+        </div>
+        <div class="resource-item">
+          <i class="fas fa-tasks"></i>
+          <h3>Actividades prácticas</h3>
+          <p>Experimentos y proyectos para el aula</p>
+          <a href="docentes.html" class="btn">Descargar</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="newsletter" class="animated-section">
+      <h2>¡Mantente informado!</h2>
+      <p>Suscríbete a nuestro boletín y recibe actualizaciones sobre nuestras actividades.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Tu correo electrónico" required />
+        <button type="submit" class="btn">Suscribirme</button>
+      </form>
+    </section>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>Respira Lima</h3>
+          <p>"No heredamos la Tierra de nuestros antepasados, la tomamos prestada de nuestros hijos."</p>
+          <p>"Respirar aire limpio no debería ser un privilegio, sino un derecho."</p>
+        </div>
+        <div class="footer-section">
+          <h3>Contáctanos</h3>
+          <p><i class="fas fa-envelope"></i> info@respiralima.pe</p>
+          <p><i class="fas fa-phone"></i> +51 123 456 789</p>
+        </div>
+        <div class="footer-section">
+          <h3>Síguenos</h3>
+          <div class="social-footer">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Respira Lima - Todos los derechos reservados</p>
+      </div>
+    </footer>
+
+    <script>
+      // Menú responsive
+      document.querySelector('.menu-icon').addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.toggle('active');
+        this.classList.toggle('active');
+      });
+
+      // Slider de imágenes con controles manuales
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".slide");
+      const dots = document.querySelectorAll(".dot");
+
+      function showSlide(n) {
+        // Ocultar todas las diapositivas
+        for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+          dots[i].classList.remove("active");
+        }
+        
+        // Mostrar la diapositiva actual
+        slides[n].style.display = "block";
+        dots[n].classList.add("active");
+        currentSlide = n;
+      }
+
+      function currentSlide(n) {
+        showSlide(n);
+      }
+
+      // Cambio automático de diapositivas
+      setInterval(() => {
+        let next = (currentSlide + 1) % slides.length;
+        showSlide(next);
+      }, 5000);
+
+      // Testimonios con navegación
+      let currentTestimonial = 0;
+      const testimonios = document.querySelectorAll(".testimonial");
+      const testimonialDots = document.querySelectorAll(".dot-testimonial");
+
+      document.querySelector('.next-testimonial').addEventListener('click', function() {
+        showTestimonial((currentTestimonial + 1) % testimonios.length);
+      });
+
+      document.querySelector('.prev-testimonial').addEventListener('click', function() {
+        showTestimonial((currentTestimonial - 1 + testimonios.length) % testimonios.length);
+      });
+
+      function showTestimonial(n) {
+        // Ocultar todos los testimonios
+        for (let i = 0; i < testimonios.length; i++) {
+          testimonios[i].style.display = "none";
+          testimonialDots[i].classList.remove("active");
+        }
+        
+        // Mostrar el testimonio actual
+        testimonios[n].style.display = "block";
+        testimonialDots[n].classList.add("active");
+        currentTestimonial = n;
+      }
+
+      // Detectar cuando las secciones son visibles
+      const animatedSections = document.querySelectorAll('.animated-section');
+      
+      function checkVisible() {
+        for (let i = 0; i < animatedSections.length; i++) {
+          const section = animatedSections[i];
+          const position = section.getBoundingClientRect();
+          
+          // Verificar si la sección es visible en el viewport
+          if(position.top < window.innerHeight && position.bottom >= 0) {
+            section.classList.add('visible');
+          }
+        }
+      }
+
+      // Comprobar visibilidad al cargar y al hacer scroll
+      window.addEventListener('load', checkVisible);
+      window.addEventListener('scroll', checkVisible);
+    </script>
+  </body>
+</html>

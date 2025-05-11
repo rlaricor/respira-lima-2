@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulador de Impacto Ambiental - Respira Lima</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Font Awesome para iconos de redes sociales -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="logo-container">
+          <h1>Respira Lima</h1>
+          <p>Educación para un aire limpio</p>
+        </div>
+        <div class="social-media">
+          <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </header>
+
+    <nav id="main-nav">
+      <div class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="modulos.html">Módulos</a>
+        <a href="simulador.html">Simulador</a>
+        <a href="historias.html">Historias</a>
+        <a href="retos.html">Retos</a>
+        <a href="testimonios.html">Testimonios</a>
+        <a href="docentes.html">Docentes</a>
+      </div>
+    </nav>
+
+    <section class="animated-section">
+      <h2>Calcula tu Huella de Carbono</h2>
+      <p>
+        Descubre cómo tus acciones diarias afectan el medio ambiente. Usa
+        nuestro simulador para calcular tu huella de carbono y aprende cómo
+        reducirla.
+      </p>
+
+      <div class="simulator-container">
+        <div class="simulator-card">
+          <h3>Transporte</h3>
+          <div class="simulator-input">
+            <label for="transport-type"
+              >¿Qué medio de transporte usas principalmente?</label
+            >
+            <select id="transport-type">
+              <option value="car">Automóvil personal</option>
+              <option value="bus">Transporte público</option>
+              <option value="bike">Bicicleta</option>
+              <option value="walk">Caminar</option>
+            </select>
+          </div>
+          <div class="simulator-input">
+            <label for="transport-distance"
+              >¿Cuántos kilómetros recorres al día?</label
+            >
+            <input
+              type="range"
+              id="transport-distance"
+              min="0"
+              max="100"
+              value="20"
+              oninput="updateTransportDistance(this.value)"
+            />
+            <span id="transport-distance-value">20 km</span>
+          </div>
+        </div>
+
+        <div class="simulator-card">
+          <h3>Energía</h3>
+          <div class="simulator-input">
+            <label for="electricity-consumption"
+              >Consumo mensual de electricidad (kWh)</label
+            >
+            <input
+              type="range"
+              id="electricity-consumption"
+              min="0"
+              max="500"
+              value="200"
+              oninput="updateElectricityConsumption(this.value)"
+            />
+            <span id="electricity-consumption-value">200 kWh</span>
+          </div>
+          <div class="simulator-input">
+            <label>¿Utilizas energías renovables?</label>
+            <div class="radio-group">
+              <input type="radio" id="renewable-yes" name="renewable" />
+              <label for="renewable-yes">Sí</label>
+              <input type="radio" id="renewable-no" name="renewable" checked />
+              <label for="renewable-no">No</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="simulator-card">
+          <h3>Residuos</h3>
+          <div class="simulator-input">
+            <label for="waste-recycling"
+              >¿Qué porcentaje de tus residuos reciclas?</label
+            >
+            <input
+              type="range"
+              id="waste-recycling"
+              min="0"
+              max="100"
+              value="30"
+              oninput="updateWasteRecycling(this.value)"
+            />
+            <span id="waste-recycling-value">30%</span>
+          </div>
+          <div class="simulator-checkbox">
+            <input type="checkbox" id="compost" />
+            <label for="compost">Hago compostaje de residuos orgánicos</label>
+          </div>
+          <div class="simulator-checkbox">
+            <input type="checkbox" id="reduce-plastic" />
+            <label for="reduce-plastic"
+              >Evito usar plásticos de un solo uso</label
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="simulator-result">
+        <h3>Tu Huella de Carbono</h3>
+        <div class="result-gauge">
+          <div class="gauge-container">
+            <div class="gauge-background"></div>
+            <div class="gauge-fill" id="carbon-gauge"></div>
+            <div class="gauge-center">
+              <span id="carbon-value">0</span>
+              <span class="carbon-unit">Ton CO₂</span>
+            </div>
+          </div>
+        </div>
+        <div class="result-comparison">
+          <p>
+            Tu huella está <span id="comparison-result">igual</span> que la
+            media nacional (5.5 Ton CO₂)
+          </p>
+        </div>
+        <button id="calculate-btn" class="btn btn-large">
+          Calcular mi huella
+        </button>
+      </div>
+
+      <div class="simulator-tips">
+        <h3>Cómo reducir tu huella de carbono</h3>
+        <div class="tips-container">
+          <div class="tip-card">
+            <div class="tip-icon">
+              <i class="fas fa-bus"></i>
+            </div>
+            <h4>Usa transporte público</h4>
+            <p>
+              Puedes reducir hasta un 30% tu huella de carbono optando por el
+              transporte público en lugar de un vehículo particular.
+            </p>
+          </div>
+          <div class="tip-card">
+            <div class="tip-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h4>Ahorra energía</h4>
+            <p>
+              Utiliza bombillas LED y apaga los electrodomésticos que no estés
+              usando para reducir tu consumo energético.
+            </p>
+          </div>
+          <div class="tip-card">
+            <div class="tip-icon">
+              <i class="fas fa-recycle"></i>
+            </div>
+            <h4>Recicla y reutiliza</h4>
+            <p>
+              Separa tus residuos y busca formas de reutilizar productos para
+              minimizar los desechos que generas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>Respira Lima</h3>
+          <p>
+            "No heredamos la Tierra de nuestros antepasados, la tomamos prestada
+            de nuestros hijos."
+          </p>
+          <p>
+            "Respirar aire limpio no debería ser un privilegio, sino un
+            derecho."
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Contáctanos</h3>
+          <p><i class="fas fa-envelope"></i> info@respiralima.pe</p>
+          <p><i class="fas fa-phone"></i> +51 123 456 789</p>
+        </div>
+        <div class="footer-section">
+          <h3>Síguenos</h3>
+          <div class="social-footer">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Respira Lima - Todos los derechos reservados</p>
+      </div>
+    </footer>
+
+    <script>
+      // Menú responsive
+      document
+        .querySelector(".menu-icon")
+        .addEventListener("click", function () {
+          document.querySelector(".nav-links").classList.toggle("active");
+          this.classList.toggle("active");
+        });
+
+      // Actualizar valores de los sliders
+      function updateTransportDistance(value) {
+        document.getElementById("transport-distance-value").textContent =
+          value + " km";
+      }
+
+      function updateElectricityConsumption(value) {
+        document.getElementById("electricity-consumption-value").textContent =
+          value + " kWh";
+      }
+
+      function updateWasteRecycling(value) {
+        document.getElementById("waste-recycling-value").textContent =
+          value + "%";
+      }
+
+      // Cálculo de huella de carbono
+      document
+        .getElementById("calculate-btn")
+        .addEventListener("click", function () {
+          // Factores de emisión simplificados para el ejemplo
+          const transportFactors = {
+            car: 2.3,
+            bus: 1.2,
+            bike: 0.1,
+            walk: 0.0,
+          };
+
+          // Obtener valores
+          const transportType = document.getElementById("transport-type").value;
+          const transportDistance = parseInt(
+            document.getElementById("transport-distance").value
+          );
+          const electricityConsumption = parseInt(
+            document.getElementById("electricity-consumption").value
+          );
+          const usesRenewable =
+            document.getElementById("renewable-yes").checked;
+          const recyclingPercentage = parseInt(
+            document.getElementById("waste-recycling").value
+          );
+          const doesCompost = document.getElementById("compost").checked;
+          const reducesPlastic =
+            document.getElementById("reduce-plastic").checked;
+
+          // Cálculo simple de huella
+          let carbonFootprint = 0;
+
+          // Transporte
+          carbonFootprint +=
+            (transportFactors[transportType] * transportDistance * 365) / 1000;
+
+          // Electricidad
+          const electricityFactor = usesRenewable ? 0.4 : 0.7;
+          carbonFootprint +=
+            (electricityConsumption * electricityFactor * 12) / 1000;
+
+          // Residuos
+          const wasteFactor = 1.5 * (1 - recyclingPercentage / 100);
+          carbonFootprint += wasteFactor;
+
+          // Ajustes por hábitos
+          if (doesCompost) carbonFootprint -= 0.3;
+          if (reducesPlastic) carbonFootprint -= 0.2;
+
+          // Garantizar que no sea negativo
+          carbonFootprint = Math.max(0, carbonFootprint.toFixed(1));
+
+          // Actualizar resultados
+          document.getElementById("carbon-value").textContent = carbonFootprint;
+
+          // Comparar con la media
+          const nationalAverage = 5.5;
+          let comparisonText = "";
+
+          if (carbonFootprint < nationalAverage * 0.8) {
+            comparisonText = "por debajo de";
+            document.getElementById("comparison-result").style.color = "green";
+          } else if (carbonFootprint > nationalAverage * 1.2) {
+            comparisonText = "por encima de";
+            document.getElementById("comparison-result").style.color = "red";
+          } else {
+            comparisonText = "similar a";
+            document.getElementById("comparison-result").style.color = "orange";
+          }
+
+          document.getElementById("comparison-result").textContent =
+            comparisonText;
+
+          // Actualizar medidor visual
+          const gaugePercentage = Math.min(100, (carbonFootprint / 10) * 100);
+          document.getElementById("carbon-gauge").style.width =
+            gaugePercentage + "%";
+
+          // Cambiar color del medidor según resultado
+          const gauge = document.getElementById("carbon-gauge");
+          if (gaugePercentage < 40) {
+            gauge.style.backgroundColor = "green";
+          } else if (gaugePercentage < 70) {
+            gauge.style.backgroundColor = "orange";
+          } else {
+            gauge.style.backgroundColor = "red";
+          }
+        });
+
+      // Detectar cuando las secciones son visibles
+      const animatedSections = document.querySelectorAll(".animated-section");
+
+      function checkVisible() {
+        for (let i = 0; i < animatedSections.length; i++) {
+          const section = animatedSections[i];
+          const position = section.getBoundingClientRect();
+
+          // Verificar si la sección es visible en el viewport
+          if (position.top < window.innerHeight && position.bottom >= 0) {
+            section.classList.add("visible");
+          }
+        }
+      }
+
+      // Comprobar visibilidad al cargar y al hacer scroll
+      window.addEventListener("load", checkVisible);
+      window.addEventListener("scroll", checkVisible);
+    </script>
+
+    <style>
+      /* Estilos específicos para el simulador */
+      .simulator-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .simulator-card {
+        background-color: var(--white);
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        flex: 1;
+        min-width: 250px;
+      }
+
+      .simulator-input {
+        margin-bottom: 15px;
+      }
+
+      .simulator-input label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+
+      .simulator-input select,
+      .simulator-input input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      .simulator-input input[type="range"] {
+        width: 100%;
+        margin-top: 5px;
+      }
+
+      .radio-group {
+        display: flex;
+        gap: 15px;
+      }
+
+      .simulator-checkbox {
+        margin-bottom: 10px;
+      }
+
+      .simulator-result {
+        margin-top: 40px;
+        text-align: center;
+        background-color: var(--white);
+        border-radius: 8px;
+        padding: 30px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .result-gauge {
+        margin: 30px auto;
+        width: 200px;
+      }
+
+      .gauge-container {
+        position: relative;
+        height: 100px;
+      }
+
+      .gauge-background {
+        position: absolute;
+        width: 100%;
+        height: 20px;
+        background-color: #eee;
+        border-radius: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .gauge-fill {
+        position: absolute;
+        height: 20px;
+        background-color: green;
+        border-radius: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        transition: width 0.5s ease, background-color 0.5s ease;
+      }
+
+      .gauge-center {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      #carbon-value {
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--dark-text);
+      }
+
+      .carbon-unit {
+        display: block;
+        font-size: 0.9rem;
+      }
+
+      .result-comparison {
+        margin: 20px 0;
+      }
+
+      #comparison-result {
+        font-weight: bold;
+      }
+
+      .simulator-tips {
+        margin-top: 50px;
+      }
+
+      .tips-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .tip-card {
+        flex: 1;
+        min-width: 200px;
+        background-color: var(--white);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .tip-icon {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+      }
+
+      @media screen and (max-width: 768px) {
+        .simulator-container {
+          flex-direction: column;
+        }
+
+        .tips-container {
+          flex-direction: column;
+        }
+
+        .simulator-card,
+        .tip-card {
+          min-width: 100%;
+        }
+      }
+    </style>
+  </body>
+</html>
